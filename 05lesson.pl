@@ -12,6 +12,7 @@ sub main {
 
 		  while(my $line = <INPUT>){
 					 if($line =~ /\begg\b/) {
+								$line =~ s/you/YOU/ig;
 								print OUTPUT "--------- $line";	
 					 }	
 		  }
