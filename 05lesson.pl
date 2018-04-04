@@ -4,14 +4,20 @@ use warnings;
 $|=1;#turned off output buffering so we can see what we print immediately
 
 sub main {
-	my $output = '>output.txt';
-	# '>' tells perl to create file, which is a bit weird
-	# alternatively one can concat later as part of the open subroutine
-	# for example open(OUTPUT, '>'.$output)...etc dot is used in perl to concat strings. only used then creating files and not reading them.
-	open(OUTPUT, $output) or die("Can't create $output.\n");
+		  my $input = 'mymanjeeves.txt';
+		  my $output = '>output.txt';
 
-	print OUTPUT "$output created.";
-	close(OUTPUT);	
+		  open(INPUT, $input) or	die("input file $input not found.\n");
+		  open(OUTPUT, $output) or die("Can't create $output.\n");
+
+		  while(my $line = <INPUT>){
+					 if($line =~ /\begg\b/) {
+								print OUTPUT "--------- $line";	
+					 }	
+		  }
+
+		  close(INPUT);
+		  close(OUTPUT);	
 }
 
 main();
