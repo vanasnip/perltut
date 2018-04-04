@@ -3,10 +3,12 @@ use warnings;
 use LWP::Simple;
 
 sub main {
-	if(-f 'mahmuhmia.jpg'){
-		print "Found file\n";
+	my $file = 'mahmuhmia.jpg';
+	
+	if(-f $file){
+		print "Found file $file\n";
 	} else {
-		print "File not found\n";
+		print "File $file not found\n";
 	}
 }
 
